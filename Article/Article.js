@@ -131,7 +131,7 @@ function plugger(data) {
     const para1 = document.createElement("p");
     const para2 = document.createElement("p");
     const para3 = document.createElement("p");
-    const spanBtn = document.createElement("span");
+    const spanBtn = document.createElement("div");
     spanBtn.classList.add("expandButton");
 
     articleTitle.textContent = data.title;
@@ -140,8 +140,10 @@ function plugger(data) {
     para2.textContent = data.secondParagraph;
     para3.textContent = data.thirdParagraph;
 
+    spanBtn.addEventListener("click", () => {
+        spanBtn.classList.toggle("article-open");
+    });
     article.append(articleTitle, articleDate, para1, para2, para3, spanBtn);
-    article.append(para1);
 
     return article;
 }
