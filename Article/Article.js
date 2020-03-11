@@ -131,8 +131,15 @@ function plugger(data) {
     const para1 = document.createElement("p");
     const para2 = document.createElement("p");
     const para3 = document.createElement("p");
-    const spanBtn = document.createElement("div");
-    spanBtn.classList.add("expandButton");
+
+    const fakeBtn = document.createElement("span");
+    fakeBtn.classList.add("expandButton");
+    fakeBtn.style.width = "80%";
+    fakeBtn.style.height = "2vh";
+    fakeBtn.style.border = "1px solid black";
+    fakeBtn.style.margin = "3% 0 0 20% ";
+    fakeBtn.textContent = "Click me for full article.";
+    article.append(fakeBtn, articleTitle, articleDate, para1, para2, para3);
 
     articleTitle.textContent = data.title;
     articleDate.textContent = data.date;
@@ -140,11 +147,9 @@ function plugger(data) {
     para2.textContent = data.secondParagraph;
     para3.textContent = data.thirdParagraph;
 
-    spanBtn.addEventListener("click", () => {
-        spanBtn.classList.toggle("article-open");
+    fakeBtn.addEventListener("click", () => {
+        article.classList.toggle("article-open");
     });
-    article.append(articleTitle, articleDate, para1, para2, para3, spanBtn);
-
     return article;
 }
 data.map(data => {
