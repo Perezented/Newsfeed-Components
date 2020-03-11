@@ -85,6 +85,16 @@ const data = [
         thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+    },
+    {
+        title: "Electronics Battle, Join Us On Saturday for Python vs FireFox",
+        date: "Saturday, 2020",
+        firstParagraph: "match" * 40,
+
+        secondParagraph: `well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well well ... `,
+
+        thirdParagraph:
+            "Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. Thats a hole in the ground. "
     }
 ];
 
@@ -118,22 +128,23 @@ function plugger(data) {
     const articleTitle = document.createElement("h2");
     const articleDate = document.createElement("p");
     articleDate.classList.add("date");
-    const p1 = document.createElement("p");
-    const p2 = document.createElement("p");
-    const p3 = document.createElement("p");
+    const para1 = document.createElement("p");
+    const para2 = document.createElement("p");
+    const para3 = document.createElement("p");
     const spanBtn = document.createElement("span");
     spanBtn.classList.add("expandButton");
 
-    article.append(articleTitle, articleDate, p1, p2, p3, spanBtn);
-
     articleTitle.textContent = data.title;
     articleDate.textContent = data.date;
-    p1.textContent = data.firstParagraph;
-    p2.textContent = data.secondParagraph;
-    p3.textContent = data.thirdParagraph;
+    para1.textContent = data.firstParagraph;
+    para2.textContent = data.secondParagraph;
+    para3.textContent = data.thirdParagraph;
 
-    return plugger;
+    article.append(articleTitle, articleDate, para1, para2, para3, spanBtn);
+    article.append(para1);
+
+    return article;
 }
-data.forEach(data => {
-    document.body.append(plugger(data));
+data.map(data => {
+    document.querySelector(".articles").append(plugger(data));
 });
