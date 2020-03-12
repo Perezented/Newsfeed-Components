@@ -8,7 +8,14 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
-
+function menuMaker() {
+  const menuDiv = document.createElement('div');
+  menuDiv.classList.add('menu');
+  const thisList = document.createElement('ul');
+  for (let i = 0; i < menuItems.length; i++){
+    const menuItems[i] = document.createElement('a')
+  }
+}
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:

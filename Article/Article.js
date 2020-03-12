@@ -134,10 +134,10 @@ function plugger(data) {
 
     const fakeBtn = document.createElement("span");
     fakeBtn.classList.add("expandButton");
-    fakeBtn.style.width = "80%";
-    fakeBtn.style.height = "2vh";
-    fakeBtn.style.border = "1px solid black";
-    fakeBtn.style.margin = "3% 0 0 20% ";
+    // fakeBtn.style.width = "80%";
+    // fakeBtn.style.height = "2vh";
+    // fakeBtn.style.border = "1px solid black";
+    // fakeBtn.style.margin = "3% 0 0 20% ";
     fakeBtn.textContent = "Click me for full article.";
     article.append(fakeBtn, articleTitle, articleDate, para1, para2, para3);
 
