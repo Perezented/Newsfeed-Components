@@ -149,7 +149,7 @@ function plugger(data) {
 
     fakeBtn.addEventListener("click", () => {
         article.classList.toggle("article-open");
-        fakeBtn.textContent.toggle("Click me to shrink article.");
+        fakeBtn.textContent = "Click me to toggle article.";
     });
     return article;
 }

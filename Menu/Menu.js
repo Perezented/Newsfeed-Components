@@ -15,34 +15,39 @@ function maker(list) {
     menu.classList.add("menu");
     const holder = document.createElement("ul");
 
-    const students = document.createElement("li");
-    const faculty = document.createElement("li");
-    const whatsNew = document.createElement("li");
-    const techTrends = document.createElement("li");
-    const music = document.createElement("li");
-    const logOut = document.createElement("li");
-    //got the menu button from the document
-    const menuImg = document.querySelector(".menu-button");
-    //added the whole menu made above to the button
-    menuImg.append(menu);
+    // const students = document.createElement("li");
+    // const faculty = document.createElement("li");
+    // const whatsNew = document.createElement("li");
+    // const techTrends = document.createElement("li");
+    // const music = document.createElement("li");
+    // const logOut = document.createElement("li");
+
     //added the ul to the div
     menu.append(holder);
     //added the li to the ul
-    holder.append(students, faculty, whatsNew, techTrends, music, logOut);
+    // holder.append(students, faculty, whatsNew, techTrends, music, logOut);
     //for each menuItem, I want to plug an li item to it
-    document.querySelectorAll("li").forEach((value, index) => {
-        value.textContent = menuItems[index];
+    console.log(holder);
+
+    list.forEach(function(item) {
+        let newListedItem = document.createElement("li");
+        newListedItem.textContent = item;
+        holder.append(newListedItem);
     });
+
+    //got the menu button from the document
+    const menuBars = document.querySelector(".menu-button");
     //add the click on it
-    document.querySelector(".menu-button").addEventListener("click", () => {
+    menuBars.addEventListener("click", e => {
         menu.classList.toggle("menu--open");
-        console.log("there was a click");
     });
+
     //return the function
-    return maker;
+    return menu;
 }
-maker(menuItems);
-/* 
+
+document.querySelector(".header").append(maker(menuItems));
+/*
   Step 1: Write a function that will create a menu component as seen below:
 
   <div class="menu">
@@ -64,6 +69,7 @@ maker(menuItems);
 
   Step 6: add the menu component to the DOM.
   
+
 */
 // function menuMaker(obj) {
 //     const menuDiv = document.createElement("div");
